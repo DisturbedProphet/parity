@@ -19,4 +19,4 @@ User-agent: Perplexity-User
 User-agent: DuckAssistBot
 Allow: /
 
-Sitemap: https://disturbedprophet.github.io/parity/sitemap.xml
+Sitemap: https://paritytimer.com/sitemap.xml

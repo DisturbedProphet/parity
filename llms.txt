@@ -4,10 +4,10 @@
 
 ## Main pages
 
-- [Timer](https://disturbedprophet.github.io/parity/#timer): the cube timer with scramble, 3D preview, current ao5 and session statistics.
-- [Trainer](https://disturbedprophet.github.io/parity/#trainer): drill PLL (21 cases), OLL (57), 2-look OLL (10), 2-look PLL (6) and F2L (41) with real setup scrambles.
-- [Stats](https://disturbedprophet.github.io/parity/#stats): best single and averages, progression chart, time distribution, sub-X milestones, practice calendar.
-- [Guide](https://disturbedprophet.github.io/parity/#guide): how the timer, inspection, averages, scrambles and trainer work, with an FAQ.
+- [Timer](https://paritytimer.com/#timer): the cube timer with scramble, 3D preview, current ao5 and session statistics.
+- [Trainer](https://paritytimer.com/#trainer): drill PLL (21 cases), OLL (57), 2-look OLL (10), 2-look PLL (6) and F2L (41) with real setup scrambles.
+- [Stats](https://paritytimer.com/#stats): best single and averages, progression chart, time distribution, sub-X milestones, practice calendar.
+- [Guide](https://paritytimer.com/#guide): how the timer, inspection, averages, scrambles and trainer work, with an FAQ.
 
 ## Key facts
 
