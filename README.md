@@ -2,7 +2,7 @@
 
 A free online speedcubing timer: random-state scrambles, a 3D preview that scrambles itself for every event, sessions with WCA-style averages, charts, a PLL / OLL / 2-look / F2L trainer and twenty themes.
 
-Live site: https://disturbedprophet.github.io/parity/
+Live site: https://paritytimer.com
 
 This `source` branch holds the editable code. The `main` branch holds the built site that GitHub Pages serves.
 
@@ -16,7 +16,7 @@ This `source` branch holds the editable code. The `main` branch holds the built 
   - `30-scramble.js` events and random-move scramblers, `40-algs.js` trainer algorithm sets
   - `48-puzzles.js` Pyraminx, Skewb, Megaminx, Square-1 and Clock geometry and notation
   - `50-cube3d.js` Three.js renderer, `55-timer.js` timer state machine, `60`–`78` the pages, `90-app.js` app shell
-- `src/site/`: robots.txt, llms.txt, favicon, web manifest and social image for the website
+- `src/site/`: robots.txt, llms.txt, favicon, web manifest, social image and the CNAME file for the custom domain
 - `tools/`: build, deploy, tests and the F2L algorithm generator
 
 ## Commands

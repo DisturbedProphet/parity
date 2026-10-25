@@ -32,7 +32,7 @@ mkdir -p site
   body_part
   printf '</body>\n</html>\n'
 } > site/index.html
-cp src/site/favicon.svg src/site/site.webmanifest site/
+cp src/site/favicon.svg src/site/site.webmanifest src/site/CNAME site/
 touch site/.nojekyll
 [ -f src/site/og-image.png ] && cp src/site/og-image.png site/
 urls < src/site/robots.txt > site/robots.txt
