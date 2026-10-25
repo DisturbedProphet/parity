@@ -1,0 +1,20 @@
+# Parity
+
+> Parity is a free online speedcubing timer for the Rubik's Cube and other WCA puzzles. It gives random-state scrambles, shows a 3D preview that scrambles itself, keeps sessions with WCA-style averages, and includes a PLL, OLL, 2-look and F2L trainer. It runs entirely in the browser, needs no account, and keeps solves on the user's device.
+
+## Main pages
+
+- [Timer](https://disturbedprophet.github.io/parity/#timer): the cube timer with scramble, 3D preview, current ao5 and session statistics.
+- [Trainer](https://disturbedprophet.github.io/parity/#trainer): drill PLL (21 cases), OLL (57), 2-look OLL (10), 2-look PLL (6) and F2L (41) with real setup scrambles.
+- [Stats](https://disturbedprophet.github.io/parity/#stats): best single and averages, progression chart, time distribution, sub-X milestones, practice calendar.
+- [Guide](https://disturbedprophet.github.io/parity/#guide): how the timer, inspection, averages, scrambles and trainer work, with an FAQ.
+
+## Key facts
+
+- Events: 3x3, 2x2, 4x4, 5x5, 6x6, 7x7, 3x3 One-Handed, 3x3 Blindfolded, Pyraminx, Skewb, Megaminx, Clock, Square-1.
+- Scrambles: random state for 3x3 (two-phase solver, about 21 moves), 2x2 (optimal, at least 4 moves), Pyraminx (at least 6 moves plus tips), Skewb (at least 7 moves) and Clock. Random move for 4x4 to 7x7, Megaminx (Pochmann notation) and Square-1.
+- Timer: hold space until green, release to start, any key stops. Optional 15-second WCA inspection with +2 after 15 seconds and DNF after 17.
+- Averages: ao5 and ao12 drop the best and worst solve; ao50 and ao100 drop 5% from each end; mo3 is a plain mean; a DNF counts as the worst time.
+- Data: stored in the browser's local storage. Users can export a JSON backup and import csTimer exports.
+- Cost: free, no ads, no sign-up.
+- Not affiliated with Rubik's Brand Ltd or the World Cube Association.

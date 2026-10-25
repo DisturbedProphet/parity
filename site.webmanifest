@@ -1,0 +1,12 @@
+{
+  "name": "Parity Cube Timer",
+  "short_name": "Parity",
+  "description": "Free online speedcubing timer with random-state scrambles, a 3D scramble preview, statistics and an algorithm trainer.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12151B",
+  "theme_color": "#12151B",
+  "categories": ["sports", "utilities", "education"],
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
