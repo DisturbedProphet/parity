@@ -1,0 +1,5 @@
+# Build output (rebuilt by tools/build.sh). site/ is its own repo on the main branch.
+/site/
+/parity.html
+/.claude/
+.DS_Store

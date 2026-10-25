@@ -1,0 +1,295 @@
+<div class="app" id="app">
+  <header class="top" id="top">
+    <a class="brand" href="#timer" aria-label="parity, go to timer">
+      <svg class="brand-mark" viewBox="0 0 22 22" aria-hidden="true">
+        <rect x="0" y="0" width="6" height="6" rx="1.4"/><rect x="8" y="0" width="6" height="6" rx="1.4"/><rect x="16" y="0" width="6" height="6" rx="1.4"/>
+        <rect x="0" y="8" width="6" height="6" rx="1.4"/><rect class="hot" x="8" y="8" width="6" height="6" rx="1.4"/><rect x="16" y="8" width="6" height="6" rx="1.4"/>
+        <rect x="0" y="16" width="6" height="6" rx="1.4"/><rect x="8" y="16" width="6" height="6" rx="1.4"/><rect x="16" y="16" width="6" height="6" rx="1.4" opacity=".35"/>
+      </svg>
+      <span>parity</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <a href="#timer" data-view="timer">Timer</a>
+      <a href="#solves" data-view="solves">Solves</a>
+      <a href="#stats" data-view="stats">Stats</a>
+      <a href="#trainer" data-view="trainer">Trainer</a>
+      <a href="#prefs" data-view="prefs">Settings</a>
+      <a href="#guide" data-view="guide">Guide</a>
+    </nav>
+    <div class="top-tools">
+      <button class="picker" id="eventBtn" aria-haspopup="menu" title="Puzzle"><span id="eventGlyph"></span><span class="label" id="eventName">3×3</span><svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button class="picker" id="sessionBtn" aria-haspopup="menu" title="Session"><span class="label" id="sessionName">Session 1</span><span class="count" id="sessionCount">0</span><svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button class="icon-btn" id="skinBtn" title="Theme" aria-haspopup="menu"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17Z" fill="currentColor" stroke="none"/></svg></button>
+      <button class="icon-btn" id="keysBtn" title="Keyboard shortcuts (?)"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg></button>
+    </div>
+  </header>
+
+  <main class="views" id="views">
+    <!-- Timer -->
+    <section class="view view-timer" id="view-timer">
+      <h1 class="sr-only">Parity online cube timer</h1>
+      <div class="stage-col">
+        <div class="scramble-rail">
+          <div class="scr-head">
+            <div class="scr-label" id="scrLabel"></div>
+            <div class="scr-actions">
+              <button class="icon-btn" id="scrPrev" title="Previous scramble (←)"><svg class="i" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+              <button class="icon-btn" id="scrNext" title="Next scramble (→)"><svg class="i" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+              <button class="icon-btn" id="scrCopy" title="Copy scramble"><svg class="i" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></button>
+              <button class="icon-btn" id="scrEdit" title="Use your own scramble"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></svg></button>
+            </div>
+          </div>
+          <div class="scramble" id="scramble" aria-live="polite"></div>
+        </div>
+        <div class="stage" id="stage">
+          <div class="timer-wrap">
+            <div class="pads" id="pads" aria-hidden="true"><i></i><i></i></div>
+            <div class="timer" id="timer" data-state="idle">0.00</div>
+            <input class="timer-input" id="timerInput" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="Type a time" hidden>
+            <div class="timer-sub num" id="timerSub"></div>
+            <div class="last-actions" id="lastActions"></div>
+          </div>
+          <div class="stage-hint" id="stageHint"></div>
+          <div class="preview" id="preview">
+            <div class="preview-bar">
+              <span class="t">Scramble</span>
+              <button class="icon-btn" id="pvMode" title="Switch between 3D and net view"><svg class="i" viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></button>
+              <button class="icon-btn" id="pvReplay" title="Replay scramble"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg></button>
+              <button class="icon-btn" id="pvExpand" title="Open large view"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></button>
+              <button class="icon-btn" id="pvHide" title="Collapse"><svg class="i" viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+            </div>
+            <div class="preview-body" id="previewBody"></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side" id="side">
+        <div class="card">
+          <div class="card-head"><h2>Current ao5</h2><span class="aside" id="scoreNote">scorecard</span></div>
+          <div class="scorecard" id="scorecard"></div>
+        </div>
+        <div class="card">
+          <table class="stat-table" id="statTable"></table>
+          <div class="stat-foot" id="statFoot"></div>
+        </div>
+        <div class="card log-card">
+          <div class="card-head"><h2>Log</h2><a class="aside" href="#solves">All solves</a></div>
+          <div style="display:grid;grid-template-rows:auto minmax(0,1fr);min-height:0">
+            <div class="list-head"><span>#</span><span>Time</span><span>ao5</span><span>ao12</span></div>
+            <div class="solve-list" id="solveList"><div class="spacer" id="solveSpacer"></div></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Solves -->
+    <section class="view scroll" id="view-solves">
+      <div class="page">
+        <div class="page-head">
+          <h1>Solves</h1><span class="sub" id="solvesSub"></span>
+          <div class="tools">
+            <input class="field" id="solvesSearch" type="search" placeholder="Search notes or scrambles" style="width:220px">
+            <select class="field" id="solvesFilter" aria-label="Filter">
+              <option value="all">All results</option><option value="ok">No penalty</option><option value="p2">+2 only</option><option value="dnf">DNF only</option><option value="note">With notes</option>
+            </select>
+          </div>
+        </div>
+        <div class="bulk-bar" id="bulkBar" hidden>
+          <span class="count" id="bulkCount"></span>
+          <button class="btn sm" id="bulkMove">Move to session</button>
+          <button class="btn sm danger" id="bulkDelete">Delete</button>
+          <button class="btn sm ghost" id="bulkClear">Clear selection</button>
+        </div>
+        <div class="card table-card">
+          <div class="table-scroll"><table class="grid" id="solvesTable"></table></div>
+          <div class="more-row" id="solvesMore" hidden><button class="btn sm" id="solvesMoreBtn">Show more</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="view scroll" id="view-stats">
+      <div class="page">
+        <div class="page-head">
+          <h1>Stats</h1><span class="sub" id="statsSub"></span>
+          <div class="tools"><div class="seg" id="statsScope"><button data-v="session" class="on">This session</button><button data-v="event">All sessions</button></div></div>
+        </div>
+        <div class="kpis" id="kpis"></div>
+        <div class="card chart-card">
+          <div class="card-head"><h2>Progression</h2>
+            <div class="legend"><span><i class="dot" style="background:var(--ink-3)"></i>Single</span><span><i style="background:var(--accent)"></i>ao5</span><span><i style="background:var(--ink)"></i>ao12</span></div>
+          </div>
+          <div class="chart-box" id="lineBox"><canvas id="lineChart"></canvas></div>
+        </div>
+        <div class="grid-2">
+          <div class="card chart-card">
+            <div class="card-head"><h2>Distribution</h2><span class="aside" id="histNote"></span></div>
+            <div class="chart-box short" id="histBox"><canvas id="histChart"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Milestones</h2><span class="aside">share of solves under each mark</span></div>
+            <table class="milestones" id="milestones"></table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Practice</h2><span class="aside">solves per day, last 26 weeks</span></div>
+          <div class="calendar" id="calendar"></div>
+          <div class="cal-foot" id="calFoot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trainer -->
+    <section class="view trainer" id="view-trainer">
+      <div class="drill">
+        <div class="scramble-rail">
+          <div class="scr-head">
+            <div class="scr-label" id="trLabel"></div>
+            <div class="scr-actions">
+              <button class="icon-btn" id="trSkip" title="Skip case"><svg class="i" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+              <button class="icon-btn" id="trCopy" title="Copy scramble"><svg class="i" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></button>
+            </div>
+          </div>
+          <div class="scramble" id="trScramble"></div>
+        </div>
+        <div class="drill-stage" id="trStage">
+          <div class="timer-wrap">
+            <div class="pads" id="trPads" aria-hidden="true"><i></i><i></i></div>
+            <div class="timer" id="trTimer" data-state="idle">0.00</div>
+            <div class="reveal" id="trReveal"></div>
+          </div>
+          <div class="preview" id="trPreview">
+            <div class="preview-bar"><span class="t">Case</span>
+              <button class="icon-btn" id="trReplay" title="Replay scramble"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg></button>
+              <button class="icon-btn" id="trPeek" title="Show or hide the cube"><svg class="i" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.6"/></svg></button>
+            </div>
+            <div class="preview-body" id="trPreviewBody"></div>
+          </div>
+        </div>
+      </div>
+      <div class="cases-col">
+        <div class="cases-tools">
+          <div class="seg" id="trSet"><button data-v="pll" class="on">PLL</button><button data-v="oll">OLL</button><button data-v="pll2">2-look PLL</button><button data-v="oll2">2-look OLL</button><button data-v="f2l">F2L</button></div>
+          <button class="btn sm" id="trAll">Select all</button>
+          <button class="btn sm ghost" id="trNone">Clear</button>
+          <span class="sel-count" id="trCount"></span>
+        </div>
+        <div class="cases" id="trCases"></div>
+      </div>
+    </section>
+
+    <!-- Preferences -->
+    <section class="view scroll" id="view-prefs">
+      <div class="page prefs" id="prefsPage"></div>
+    </section>
+
+    <!-- Guide: static, crawlable help that also answers what people search for -->
+    <section class="view scroll" id="view-guide">
+      <article class="page guide" itemscope itemtype="https://schema.org/FAQPage">
+        <header class="guide-head">
+          <h1>Parity: a free online speedcubing timer</h1>
+          <p class="lede">Parity times Rubik's Cube solves in your browser. Each solve gets a WCA-style random-state scramble, and a 3D cube in the corner scrambles itself so you can check your cube before you start. Sessions, averages, charts and a PLL, OLL and F2L trainer are built in, and it is free with no account.</p>
+          <p class="guide-cta"><a class="btn primary" href="#timer">Open the timer</a> <a class="btn" href="#trainer">Try the trainer</a></p>
+        </header>
+
+        <h2 id="features">What Parity does</h2>
+        <ul>
+          <li><b>Stackmat-style timer.</b> Hold the space bar until the timer turns green, let go to start, and press any key to stop. On a phone, touch and hold the timer area.</li>
+          <li><b>Random-state scrambles</b> for 3×3, 2×2, Pyraminx, Skewb and Clock, generated in the browser, plus random-move scrambles for 4×4 to 7×7, Megaminx and Square-1.</li>
+          <li><b>3D scramble preview</b> for every event. The puzzle turns through the scramble move by move while the scramble text highlights each move. Drag it to see every side.</li>
+          <li><b>WCA inspection</b> with optional 8 and 12 second calls, and automatic +2 and DNF penalties.</li>
+          <li><b>Sessions and statistics:</b> single, mo3, ao5, ao12, ao50 and ao100 with current and best values, a progression chart, a time distribution, sub-X milestones and a practice calendar.</li>
+          <li><b>Algorithm trainer</b> with all 21 PLLs, all 57 OLLs, 2-look OLL, 2-look PLL and all 41 F2L cases, each with a case diagram and a real scramble that sets it up.</li>
+          <li><b>Twenty themes</b>, from quiet light and dark looks to Terminal, Game Boy, Blueprint, Brutalist, Retro OS and Neon.</li>
+          <li><b>Import from csTimer</b> and export a backup at any time.</li>
+        </ul>
+
+        <h2 id="events">Supported puzzles and scrambles</h2>
+        <div class="table-scroll">
+          <table class="guide-table">
+            <thead><tr><th>Event</th><th>Scramble</th><th>3D preview</th></tr></thead>
+            <tbody>
+              <tr><td>3×3, 3×3 One-Handed, 3×3 Blindfolded</td><td>Random state, two-phase solver, about 21 moves</td><td>Yes</td></tr>
+              <tr><td>2×2</td><td>Random state, optimal solution, at least 4 moves</td><td>Yes</td></tr>
+              <tr><td>4×4, 5×5, 6×6, 7×7</td><td>Random move: 40, 60, 80 and 100 moves</td><td>Yes</td></tr>
+              <tr><td>Pyraminx</td><td>Random state, at least 6 moves plus random tips</td><td>Yes</td></tr>
+              <tr><td>Skewb</td><td>Random state, at least 7 moves</td><td>Yes</td></tr>
+              <tr><td>Megaminx</td><td>Random move, 7 lines in Pochmann notation</td><td>Yes</td></tr>
+              <tr><td>Clock</td><td>Random state in current WCA notation</td><td>Yes</td></tr>
+              <tr><td>Square-1</td><td>Random move with legal slices only</td><td>Yes</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="how">How to time a solve</h2>
+        <ol>
+          <li>Pick your puzzle from the menu at the top. The scramble appears above the timer.</li>
+          <li>Hold your cube with white on top and green in front, then apply the scramble. The 3D preview shows what your cube should look like.</li>
+          <li>Hold the space bar until the timer and the two pads above it turn green.</li>
+          <li>Release the space bar to start and solve. Press any key to stop.</li>
+          <li>The time is saved to the current session and a new scramble appears. Mark +2 or DNF straight away if you need to.</li>
+        </ol>
+
+        <h2 id="inspection">Inspection and penalties</h2>
+        <p>With inspection turned on in Settings, tap the space bar to begin 15 seconds of inspection, then hold and release to start, as in a WCA competition. Starting between 15 and 17 seconds adds a 2 second penalty (+2). Starting after 17 seconds is a DNF (did not finish). Blindfolded solves skip inspection.</p>
+
+        <h2 id="averages">How averages are calculated</h2>
+        <p>Parity follows the WCA rules. An average of 5 (ao5) drops the best and worst of the last five solves and takes the mean of the middle three. An ao12 drops one best and one worst. Longer averages drop 5% from each end, so ao50 drops 3 and ao100 drops 5. A mean of 3 (mo3) uses every solve. A DNF counts as the worst time. One DNF can be dropped, but two in an ao5 make the whole average a DNF.</p>
+
+        <h2 id="random-state">What random-state scrambles are</h2>
+        <p>A random-state scrambler picks a position uniformly at random from every position the puzzle can reach, then finds a short sequence of moves that leads to it. That makes every scramble equally fair, which is why the WCA uses random-state scrambles where it can. Parity solves 3×3 positions with a two-phase solver and finds optimal solutions for 2×2, Pyraminx and Skewb, all inside your browser.</p>
+
+        <h2 id="trainer">The algorithm trainer</h2>
+        <p>Pick a set (PLL, OLL, 2-look PLL, 2-look OLL or F2L) and the cases you want to drill. Hold your cube with yellow on top and green in front and apply the scramble: it sets up one case with the rest of the last layer scrambled, so you practise recognition as well as execution. After each solve Parity shows the case name, the algorithm and your recent average for that case. F2L cases are for the front-right slot with the cross on the bottom.</p>
+
+        <h2 id="shortcuts">Keyboard shortcuts</h2>
+        <div class="table-scroll">
+          <table class="guide-table">
+            <tbody>
+              <tr><td><kbd>Space</kbd></td><td>Hold until green, release to start. Any key stops the timer.</td></tr>
+              <tr><td><kbd>Esc</kbd></td><td>Cancel the timer or inspection without saving</td></tr>
+              <tr><td><kbd>→</kbd> / <kbd>←</kbd></td><td>Next or previous scramble</td></tr>
+              <tr><td><kbd>Alt</kbd> + <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd></td><td>Mark the last solve as no penalty, +2 or DNF</td></tr>
+              <tr><td><kbd>Alt</kbd> + <kbd>Z</kbd></td><td>Delete the last solve</td></tr>
+              <tr><td><kbd>?</kbd></td><td>Show all shortcuts</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="faq">Frequently asked questions</h2>
+        <div class="faq">
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" open>
+            <summary itemprop="name">Is Parity free?</summary>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Yes. Parity is free, has no ads and needs no account. Everything runs in your browser.</p></div>
+          </details>
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Are Parity's scrambles the same kind the WCA uses?</summary>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">For 3×3, 2×2, Pyraminx, Skewb and Clock, yes: they are random-state scrambles, like the ones TNoodle generates for competitions. 5×5 to 7×7 and Megaminx use random-move scrambles, as the WCA does. 4×4 and Square-1 use random-move scrambles here, where the WCA uses random state.</p></div>
+          </details>
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What do ao5 and ao12 mean?</summary>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">ao5 is the average of your last five solves with the best and worst removed. ao12 is the average of your last twelve with the best and worst removed. They are the standard way speedcubers measure their pace.</p></div>
+          </details>
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Can I move my times from csTimer?</summary>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Yes. Export from csTimer, then choose Import in Parity's Settings. Each csTimer session becomes a Parity session for the matching puzzle.</p></div>
+          </details>
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Where are my solves stored?</summary>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Your solves are saved in your browser's local storage on your device and never sent to a server. Export a backup from Settings to keep a copy or to move to another device.</p></div>
+          </details>
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Does Parity work on a phone?</summary>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Yes. Touch and hold the timer area until it turns green, let go to start, and tap anywhere to stop. The layout adapts to small screens.</p></div>
+          </details>
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">How do I practise PLL, OLL or F2L?</summary>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Open the Trainer, pick a set, select the cases you want and press space to time each one. Parity scrambles your cube into a random selected case and shows the algorithm after you solve it.</p></div>
+          </details>
+        </div>
+        <p class="guide-foot">Parity is an independent project and is not affiliated with Rubik's Brand Ltd or the World Cube Association.</p>
+      </article>
+    </section>
+  </main>
+</div>
+<div class="layer" id="layer"></div>
+<div class="toasts" id="toasts"></div>

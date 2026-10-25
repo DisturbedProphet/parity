@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#12151B"/>
+  <rect x="40" y="40" width="1120" height="550" rx="28" fill="#191D26"/>
+  <g transform="translate(96 112)">
+    <g fill="#E8EBF0">
+      <rect x="0" y="0" width="22" height="22" rx="5"/><rect x="28" y="0" width="22" height="22" rx="5"/><rect x="56" y="0" width="22" height="22" rx="5"/>
+      <rect x="0" y="28" width="22" height="22" rx="5"/><rect x="56" y="28" width="22" height="22" rx="5"/>
+      <rect x="0" y="56" width="22" height="22" rx="5"/><rect x="28" y="56" width="22" height="22" rx="5"/><rect x="56" y="56" width="22" height="22" rx="5" opacity=".35"/>
+    </g>
+    <rect x="28" y="28" width="22" height="22" rx="5" fill="#F4C430"/>
+    <text x="104" y="62" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-2" fill="#E8EBF0">parity</text>
+  </g>
+  <text x="96" y="300" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="-1.5" fill="#E8EBF0">Online cube timer</text>
+  <text x="96" y="364" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="-1.5" fill="#F4C430">with 3D scrambles</text>
+  <text x="96" y="440" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="25" fill="#9AA3B2">Random-state scrambles · ao5 and ao12 stats</text>
+  <text x="96" y="478" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="25" fill="#9AA3B2">PLL, OLL and F2L trainer · free, no account</text>
+  <text x="96" y="548" font-family="Menlo, Courier New, monospace" font-size="22" fill="#5F6878">R U R' U' F2 D L' B2 U2 R2 F</text>
+  <!-- isometric scrambled cube: U, F and R faces -->
+  <g transform="translate(905 318)">
+    <g id="u">
+      <polygon points="0,-180 52,-150 0,-120 -52,-150" fill="#FAFAF6"/><polygon points="57,-147 109,-117 57,-87 5,-117" fill="#F0213A"/><polygon points="114,-114 166,-84 114,-54 62,-84" fill="#FAFAF6"/>
+      <polygon points="-57,-147 -5,-117 -57,-87 -109,-117" fill="#16CC4E"/><polygon points="0,-114 52,-84 0,-54 -52,-84" fill="#FAFAF6"/><polygon points="57,-81 109,-51 57,-21 5,-51" fill="#FFE418"/>
+      <polygon points="-114,-114 -62,-84 -114,-54 -166,-84" fill="#FAFAF6"/><polygon points="-57,-81 -5,-51 -57,-21 -109,-51" fill="#FF8A10"/><polygon points="0,-48 52,-18 0,12 -52,-18" fill="#1F6BFF"/>
+    </g>
+    <g>
+      <polygon points="-169,-78 -117,-48 -117,12 -169,-18" fill="#16CC4E"/><polygon points="-112,-45 -60,-15 -60,45 -112,15" fill="#16CC4E"/><polygon points="-55,-12 -3,18 -3,78 -55,48" fill="#F0213A"/>
+      <polygon points="-169,-12 -117,18 -117,78 -169,48" fill="#FFE418"/><polygon points="-112,21 -60,51 -60,111 -112,81" fill="#16CC4E"/><polygon points="-55,54 -3,84 -3,144 -55,114" fill="#16CC4E"/>
+      <polygon points="-169,54 -117,84 -117,144 -169,114" fill="#16CC4E"/><polygon points="-112,87 -60,117 -60,177 -112,147" fill="#1F6BFF"/><polygon points="-55,120 -3,150 -3,210 -55,180" fill="#16CC4E"/>
+    </g>
+    <g>
+      <polygon points="3,18 55,-12 55,48 3,78" fill="#F0213A"/><polygon points="60,-15 112,-45 112,15 60,45" fill="#FAFAF6"/><polygon points="117,-48 169,-78 169,-18 117,12" fill="#F0213A"/>
+      <polygon points="3,84 55,54 55,114 3,144" fill="#F0213A"/><polygon points="60,51 112,21 112,81 60,111" fill="#F0213A"/><polygon points="117,18 169,-12 169,48 117,78" fill="#FF8A10"/>
+      <polygon points="3,150 55,120 55,180 3,210" fill="#FFE418"/><polygon points="60,117 112,87 112,147 60,177" fill="#F0213A"/><polygon points="117,84 169,54 169,114 117,144" fill="#F0213A"/>
+    </g>
+  </g>
+</svg>
